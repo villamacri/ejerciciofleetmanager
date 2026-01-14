@@ -27,6 +27,11 @@ public class Taller {
     //Métodos helper
     public void addMantenimento(Mantenimiento mantenimiento){
         mantenimientos.add(mantenimiento);
-        mantenimiento.set
+        mantenimiento.setTaller(this);
+    }
+
+    public void removeMantenimiento(Mantenimiento mantenimiento){
+        mantenimientos.remove(mantenimiento);
+        mantenimiento.setTaller(null);
     }
 }

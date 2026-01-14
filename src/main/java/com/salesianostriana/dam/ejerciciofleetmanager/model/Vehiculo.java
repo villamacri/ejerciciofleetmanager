@@ -19,6 +19,7 @@ public class Vehiculo {
     @GeneratedValue
     private Long id;
 
+
     private String matricula;
     private String modelo;
     private int kmActuales;
@@ -29,4 +30,15 @@ public class Vehiculo {
 
     @OneToMany(mappedBy = "vehiculo", fetch = FetchType.LAZY)
     private List<Mantenimiento> mantenimientos = new ArrayList<>();
+
+    //Métodos helper
+    public void addAsignacion(Asignacion asignacion){
+        asignaciones.add(asignacion);
+        asignacion.setVehiculo(this);
+    }
+
+    public void removeAsignacion(Asignacion asignacion){
+        asignaciones.remove(asignacion);
+        asignacion.setVehiculo(null);
+    }
 }
