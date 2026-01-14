@@ -9,7 +9,6 @@ public record VehiculoSummaryDto(
         String matricula,
         String modelo
 ) {
-    public record AsignacionInfo(Long id, Conductor conductor)
     public static VehiculoSummaryDto of(Vehiculo vehiculo){
         return new VehiculoSummaryDto(
                 vehiculo.getMatricula(),

@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AsignacionRepository extends JpaRepository<Asignacion, Long> {
+
+    boolean existsByConductorIdAndFechaFinIsNull(Long conductorId);
+
+    boolean existsByVehiculoIdAndFechaFinIsNull(Long vehiculoId);
 }
