@@ -6,14 +6,9 @@ import java.time.LocalDate;
 
 public record CreateAsignacionRequest(
         LocalDate fechaInicio,
-        LocalDate fechaFin
+        LocalDate fechaFin,
+        Long vehiculoId,
+        Long conductorId
 ) {
-
-    public Asignacion toEntity(){
-        return Asignacion.builder()
-                .fechaInicio(this.fechaInicio)
-                .fechaFin(this.fechaFin)
-                .build();
-    }
 
 }

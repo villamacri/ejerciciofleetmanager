@@ -7,13 +7,8 @@ import java.time.LocalDate;
 public record CreateMantenimientoRequest(
         String tipo,
         LocalDate fecha,
-        int kmEnRevision
+        int kmEnRevision,
+        Long vehiculoId,
+        Long tallerId
 ) {
-    public Mantenimiento toEntity(){
-        return Mantenimiento.builder()
-                .tipo(this.tipo)
-                .fecha(this.fecha)
-                .kmEnRevision(this.kmEnRevision)
-                .build();
-    }
 }

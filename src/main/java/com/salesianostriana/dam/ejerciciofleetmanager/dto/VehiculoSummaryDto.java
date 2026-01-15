@@ -6,13 +6,22 @@ import com.salesianostriana.dam.ejerciciofleetmanager.model.Conductor;
 import com.salesianostriana.dam.ejerciciofleetmanager.model.Vehiculo;
 
 public record VehiculoSummaryDto(
+        Long id,
         String matricula,
-        String modelo
+        String modelo,
+        Estado estado,
+        ConductorSimpleDto conductorSimpleDto
 ) {
-    public static VehiculoSummaryDto of(Vehiculo vehiculo){
+
+    public record ConductorSimpleDto(Long id, String nombre){}
+
+    public static VehiculoSummaryDto of(Vehiculo v){
         return new VehiculoSummaryDto(
-                vehiculo.getMatricula(),
-                vehiculo.getModelo()
+                v.getId(),
+                v.getMatricula(),
+                v.getModelo(),
+                v.getEstado(),
+                new ConductorSimpleDto(v.getConductor().getId(), v.getConductor().getNombre())
          );
     }
 }
